@@ -4,9 +4,12 @@
 
 
 /**
- * スレッドセーフな参照カウント
+ * スレッドセーフな即時参照カウント
  * 
- * - 参考
+ * 基本的には『ガベージコレクション 自動的メモリ管理を構成する理論と実装』の18章「並行参照カウント法」にて取り上げられている
+ * ロックを用いた単純な並行即時参照カウント法を参考に実装した。
+ * ロックは単純なスピンロックを実装した。
+ * 加えて、カウンタの増減時のメモリバリアについては以下も参考にした。
  *  + https://github.com/rust-lang/rust/blob/master/library/alloc/src/sync.rs
  *  + https://www.boost.org/doc/libs/1_55_0/doc/html/atomic/usage_examples.html
  */
